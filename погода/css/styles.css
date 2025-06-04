@@ -1,0 +1,220 @@
+/* Общие стили для сайта */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+}
+
+/* Заголовки и шрифты */
+h1, h2, h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 2.25rem; /* 36px */
+}
+
+h2 {
+  font-size: 1.25rem; /* 20px */
+}
+
+h3 {
+  font-size: 1.125rem; /* 18px */
+}
+
+/* Карточки и контейнеры */
+.weather-card,
+.search-popup,
+.map-container,
+.forecast-day {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem; /* 12px */
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.dark .weather-card,
+.dark .search-popup,
+.dark .map-container,
+.dark .forecast-day {
+  background-color: #1f2937; /* темный фон для темной темы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Заголовки секций */
+h2 {
+  border-bottom: 2px solid #e5e7eb; /* светлая граница */
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dark h2 {
+  border-color: #4b5563;
+}
+
+/* Кнопки */
+button {
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.bg-indigo-600 {
+  background-color: #4f46e5;
+}
+
+.bg-indigo-700 {
+  background-color: #4338ca;
+}
+
+.hover\:bg-indigo-700:hover {
+  background-color: #3730a3;
+}
+
+/* Тема тёмной темы */
+.dark body {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.search-popup {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Области с прокруткой */
+.scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: #c7d2fe #f1f5f9;
+}
+
+.dark .scroll-container {
+  scrollbar-color: #4f46e5 #1f2937;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.dark .scroll-container::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #c7d2fe;
+  border-radius: 10px;
+}
+
+.dark .scroll-container::-webkit-scrollbar-thumb {
+  background-color: #4f46e5;
+}
+
+/* Индикация текущего дня (выделение) */
+.today-highlight {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3), 0 2px 4px rgba(79, 70, 229, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Тема светлая для выделенного дня */
+body:not(.dark) .today-highlight {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+/* Анимация при hover для прогноза дня */
+.forecast-day:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Стиль для почасовых элементов */
+.hourly-item {
+  min-width: 80px;
+  margin: 0 0.5rem;
+  padding: 0.75rem;
+  background-color: #f9fafb; /* светлый фон */
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.dark .hourly-item {
+  background-color: #374151; /* темный фон */
+  color: #f3f4f6;
+}
+
+.hourly-item:hover {
+  transform: scale(1.05);
+}
+
+/* Стиль для блока карты */
+.map-container {
+  height: 300px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark .map-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Стиль для кнопки поиска */
+#searchBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Тёмные и светлые подсказки */
+.dark .text-gray-600 {
+  color: #9ca3af;
+}
+
+.text-gray-600 {
+  color: #6b7280;
+}
+
+/* Стиль для прогноза на неделю */
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+/* Стиль выделения текущего дня */
+.today-highlight {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Адаптивность и отступы */
+@media (max-width: 768px) {
+  /* Для мобильных устройств */
+  .forecast-grid {
+    grid-template-columns: 1fr;
+  }
+}
